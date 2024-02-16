@@ -37,4 +37,7 @@ def chat():
             # "image_url": image_url
         }
     }
+    return jsonify(response)
 
+if __name__ == '__main__':
+    app.run(debug=True)

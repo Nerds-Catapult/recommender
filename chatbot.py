@@ -53,7 +53,16 @@ streaming_llm = openai(
     max_tokens = 1500
 )
 
+question_generator = LLMChain(
+    llm=llm,
+    prompt=condense_question_prompt
+)
 
+doc_chain = load_qa_chain(
+    llm=streaming_llm,
+    chain_type="stuff",
+    prompt=qa_prompt
+)
 class RedisProductRetriever(BaseRetriever, BaseModel):
     vectorstore: VectorStore
 
@@ -63,5 +72,29 @@ class RedisProductRetriever(BaseRetriever, BaseModel):
     def combine_metadata(self, doc) -> str:
         metadata = doc.metadata
         return(
-            
+            "Product Name: " + metadata["product_name"] + ". " +
+           "Product Description: " + metadata["description"] + ". " +
+           "Product URL: " + metadata["product_url"] + "." +
+           "image: " + metadata["image"] + "."
         )
+    def get_relevant_documents(self, query):
+        docs = []
+        for doc in self.vectorstore.similarity_search(query):
+            content = self.combine_metadata(doc)
+            docs.append(Document(
+                page_content=content,
+                metadata=doc.metadata
+            ))
+            return docs
+        
+
+redis_product_retriever = RedisProductRetriever(vectorstore=vectorstore)
+
+chatbot = ConversationalRetrievalChain(
+    retriever=redis_product_retriever,
+    combine_docs_chain=doc_chain,
+    question_generator=question_generator
+)
+
+
+chat_history = []
