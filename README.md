@@ -2,7 +2,7 @@
 
 ## Overview
 
-This chatbot is designed to provide fashion product recommendations using data from Flipkart's catalog. It utilizes a combination of machine learning techniques and openAI models to understand user preferences and suggest relevant fashion items available on Flipkart's platform.
+This chatbot is designed to provide fashion product recommendations using data from Flipkart's catalog. It utilizes a combination of machine learning techniques and openAI models to understand user preferences and suggest relevant fashion items available on the platform.
 
 ## Features
 
@@ -14,9 +14,9 @@ This chatbot is designed to provide fashion product recommendations using data f
 
 1. **Input Query:** Start a conversation with the chatbot by sending a text query describing your fashion preferences. For example: "I'm looking for casual summer dresses."
 
-3. **Receive Recommendations:** Based on the information you provided, the chatbot will generate and display a list of recommended fashion products available on Flipkart. Each recommendation will include product details, images, prices, and links to the product page.
+3. **Receive Recommendations:** Based on the information you provided, the chatbot will generate and display a list of recommended fashion products available on the data. Each recommendation will include product details, images, prices, and links to the product page.
 
-4. **Explore Recommendations:** Browse through the recommendations and click on the product links to view more details or make a purchase on Flipkart's platform.
+4. **Explore Recommendations:** Browse through the recommendations and click on the product links to view more details or make a purchase on shop platform.
 
 ## Running the Chatbot Locally
 
@@ -29,7 +29,7 @@ Follow these steps to run the chatbot on your local machine:
 2. Clone this repository to your local machine using the following command:
    
    ```bash
-   git clone https://github.com/DJcodess/Chatbot.git
+   git clone https://github.com/Nerds-Catapult/recommender.git
    ```
 
 ### Install the required dependencies
