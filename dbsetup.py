@@ -8,7 +8,7 @@ def auto_truncate(val):
     return val[:MAX_TEXT_LENGTH]
 
 
-all_prods_df = pd.read_csv("data.csv", converters={
+all_prods_df = pd.read_csv("sampledata.csv", converters={
     'description': auto_truncate,
     'product_specifications': auto_truncate,
     'product_name': auto_truncate,
@@ -33,7 +33,7 @@ product_metadata[0]
 
 from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores.redis import Redis as RedisVectorStore
-os.environ['OPENAI_API_KEY'] = "open_key"
+os.environ['OPENAI_API_KEY'] = "OPEN_API"
 
 texts = [
     v['product_name'] for k, v in product_metadata.items()
@@ -44,7 +44,7 @@ embedding = OpenAIEmbeddings()
 
 index_name = "products"
 
-redis_url = "redis://localhost:6380"
+redis_url = "redis://localhost:6379"
 
 vectorstore = RedisVectorStore.from_texts(
     texts=texts,

@@ -4,7 +4,7 @@ from langchain.chains import (
     ConversationalRetrievalChain,
     LLMChain
 )
-from langchain.chat_models import ChatOpenAi
+from langchain_community.chat_models import ChatOpenAI
 from langchain.chains.question_answering import load_qa_chain
 from langchain.llms import openai
 from langchain.prompts.prompt import PromptTemplate
