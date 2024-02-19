@@ -1,4 +1,4 @@
-# Fashion Product Recommendation Chatbot for Flipkart
+# Fashion Product Recommendation Chatbot for X2-protos. continuation from last year's segement
 
 ## Overview
 
