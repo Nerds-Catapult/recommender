@@ -2,6 +2,15 @@ import pandas as pd
  
 MAX_TEXT_LENGTH=1000  # Maximum num of text characters to use
  
+from langchain_community.embeddings import OpenAIEmbeddings
+from langchain.vectorstores.redis import RedisVectorStore
+
+MAX_TEXT_LENGTH = 1000  # Maximum num of text characters to use
+NUMBER_PRODUCTS = 1000  # Num products to use (subset)
+OPENAI_API_KEY = "<sk>your open api keys"  # OpenAI API Key
+INDEX_NAME = "products"  # Name of the Redis search index to create
+REDIS_URL = "redis://localhost:6379"  # Redis URL
+
 def auto_truncate(val):
  
     """Truncate the given text."""
