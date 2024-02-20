@@ -10,7 +10,7 @@ def auto_truncate(val):
     
 # Load Product data and truncate long text fields
  
-all_prods_df = pd.read_csv("flipkart_com-ecommerce_sample.csv", converters={
+all_prods_df = pd.read_csv("sampledata.csv", converters={
  
     'description': auto_truncate,
  
@@ -54,7 +54,7 @@ from langchain.embeddings import OpenAIEmbeddings
 from langchain.vectorstores.redis import Redis as RedisVectorStore
  
 # set your openAI api key as an environment variable
-os.environ['OPENAI_API_KEY'] = "INSERT KEY HERE"
+os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API')
  
 # data that will be embedded and converted to vectors
 texts = [
@@ -71,7 +71,7 @@ embedding = OpenAIEmbeddings()
 index_name = "products"
  
 # assumes you have a redis stack server running on local host
-redis_url = "redis://localhost:6380"
+redis_url = "redis://localhost:6379" # "redis://<your-redis-url>:6379
 
 # %%
 vectorstore = RedisVectorStore.from_texts(
