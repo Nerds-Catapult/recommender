@@ -7,7 +7,6 @@ from langchain.vectorstores.redis import RedisVectorStore
 
 MAX_TEXT_LENGTH = 1000  # Maximum num of text characters to use
 NUMBER_PRODUCTS = 1000  # Num products to use (subset)
-OPENAI_API_KEY =os.enviro["OPEN_API"]  # OpenAI API Key
 INDEX_NAME = "products"  # Name of the Redis search index to create
 REDIS_URL = "redis://localhost:6379"  # Redis URL
 
@@ -56,6 +55,7 @@ product_metadata = (
 # Check one of the products
 product_metadata[0]
 
+<<<<<<< HEAD
 # %%
 import os
  
@@ -69,6 +69,10 @@ os.environ['OPENAI_API_KEY'] = os.getenv('OPENAI_API')
 texts = [
     v['product_name'] for k, v in product_metadata.items()
 ]
+=======
+# Set OpenAI API key as an environment variable
+os.environ['OPENAI_API_KEY'] = 'your-api'
+>>>>>>> 669fd6a (Update OpenAI API Key)
 
 # product metadata that we'll store along our vectors
 metadatas = list(product_metadata.values())
